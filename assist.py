@@ -12,6 +12,7 @@ import webbrowser
 import sys
 import assistt
 import random
+import smtplib
 
 engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')
@@ -53,6 +54,16 @@ def takecommand():
         print("say that again please...")
         return "None"
     return query
+
+def sendEmail(to,content):
+    server = smtplib.SMTP('smtp.gmail.com', 587)
+    server.ehlo()
+    server.starttls()
+    server.login('parameswarbehura07@gmail.com','kfgshkgwoyrexjbs')
+    server.sendmail('parameswarbehura07@gmail.com',to,content)
+    server.close()
+
+        
 if __name__ == "__main__":
     wish()
     while True:
@@ -114,4 +125,16 @@ if __name__ == "__main__":
             speak("erectlie boob girl living by side of your room.. and tu setithi kain gaandi maaruchu")
         elif "mantu" in query:
             speak("Mantu is a very sexy boy.... and ghoda gehin also")
+        elif 'email to param' in query:
+            try:
+
+                speak("what should i write sir?")
+                content = takecommand()
+                to = "parames.behura@gmail.com"
+                sendEmail(to,content)
+                speak("email has been sent")
+            except Exception as e:
+                print(e)
+                speak("soory sir am unable to send this mail")
+
             
