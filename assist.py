@@ -60,7 +60,7 @@ def sendEmail(to,content):
     server = smtplib.SMTP('smtp.gmail.com', 587)
     server.ehlo()
     server.starttls()
-    server.login('parameswarbehura07@gmail.com','kfgshkgwoyrexjbs')
+    server.login('parameswarbehura07@gmail.com','enterpassword')
     server.sendmail('parameswarbehura07@gmail.com',to,content)
     server.close()
 def wpmsg():
