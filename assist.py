@@ -145,8 +145,8 @@ if __name__ == "__main__":
             speak("jai sai ram sir..., how are you..")
         elif "namaskar" in query:
             speak("jai sri ram..., how are you..")
-        elif "madarchod" in query:
-            speak("yes sir, sambit is the only good guy in your room.. means you understand what am trying to say...")
+        elif "kalpana" in query:
+            speak("yes sir, Kalpana is the only good girl among your friends.. means you understand what am trying to say...")
         elif "parmeshwar" in query:
             speak("yes parameswar....")
         elif "bore" in query:
@@ -167,10 +167,9 @@ if __name__ == "__main__":
             speak('very good night sir and madam am also going to sleep')
         elif "how are you" in query:
             speak('i am fine what about you pramod?')
-        elif "beauty" in query:
-            speak("erectlie boob girl living by side of your room.. and tu setithi kain gaandi maaruchu")
+        
         elif "mantu" in query:
-            speak("Mantu is a very sexy boy.... and ghoda gehin also")
+            speak("Mantu is a very sexy boy.... and good friend also")
         elif 'email to param' in query:
             try:
 
