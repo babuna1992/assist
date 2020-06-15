@@ -14,6 +14,7 @@ import assistt
 import random
 import smtplib
 
+
 engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')
 engine.setProperty('voice',voices[0].id)
@@ -62,6 +63,51 @@ def sendEmail(to,content):
     server.login('parameswarbehura07@gmail.com','kfgshkgwoyrexjbs')
     server.sendmail('parameswarbehura07@gmail.com',to,content)
     server.close()
+def wpmsg():
+    
+    import selenium,time
+
+    from selenium import webdriver
+
+    driver = webdriver.Chrome(r'F:\kilvish\chromedriver.exe')
+
+    driver.maximize_window()
+
+    driver.get('https://web.whatsapp.com/')
+    speak('tell me whom you have to message.')
+    b = takecommand()
+    if b == None:
+        speak("tell me again")
+    else:
+        name = b.lower()
+    
+    print('user said',b)
+    speak('enter your message')
+    a = takecommand()
+    print('user said',a)
+    msg = a
+
+   
+    speak('can you please press any key.. i want to confirm is that you and please scan your QR code after security confirmation')
+    
+    input('enter anything after scanning qr code')
+
+
+    user = driver.find_element_by_xpath('//span[@title = "{}"]'.format(name))
+
+    user.click()
+
+    msg_box = driver.find_element_by_xpath('//*[@id="main"]/footer/div[1]/div[2]/div/div[2]')
+
+    
+    msg_box.send_keys(msg)
+    button = driver.find_element_by_xpath('//*[@id="main"]/footer/div[1]/div[3]/button/span')
+    button.click()
+    speak('message has been sent sir')
+        
+    
+  
+
 
         
 if __name__ == "__main__":
@@ -136,5 +182,20 @@ if __name__ == "__main__":
             except Exception as e:
                 print(e)
                 speak("soory sir am unable to send this mail")
+        elif 'email to pramod' in query:
+            try:
 
+                speak("what should i write sir?")
+                content = takecommand()
+                to = "pramodbarik657@gmail.com"
+                sendEmail(to,content)
+                speak("email has been sent")
+            except Exception as e:
+                print(e)
+                speak("soory sir am unable to send this mail")
+
+        elif "want to send message" in query:
+            wpmsg()
+            
+            
             
